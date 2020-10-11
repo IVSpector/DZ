@@ -1,0 +1,8 @@
+lang1 = "qwerty2"
+lang2 = "qwerty1"
+if len(lang1) > len(lang2): 
+    print('Фраза 1 длиннее фразы 2')
+elif len(lang1) < len(lang2): 
+    print('Фраза 2 длиннее фразы 1')
+else:
+    print('Фразы равной длины')
