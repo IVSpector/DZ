@@ -41,3 +41,28 @@ for element in data:
     
     if (month == name_from and day>= day_from) or (month == name_to and day<= day_to):
         print('Ваш знак %s' % element['name'])
+
+
+
+
+
+
+
+
+width = int(input('Введите ширина:'))
+length = int(input('Введите длинна:'))
+height = int(input('Введите высота:'))
+
+data = [
+    {'min':15, 'med':50 , 'max':200 }
+]
+
+for element in data:
+    if length >= element['max']:
+        print('Упаковка для лыж')
+    elif width < element['min'] and length < element['min'] and height < element['min']:
+        print('Коробка №1')
+    elif element['min']<width<element['med'] or element['min']<length<element['min'] or element['min']<height<element['min']:
+        print('Коробка №2')
+    else:
+        print('Стандартная коробка №3')
