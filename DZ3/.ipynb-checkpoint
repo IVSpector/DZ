@@ -161,18 +161,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 237,
+   "execution_count": 267,
    "metadata": {},
    "outputs": [
     {
-     "ename": "KeyError",
-     "evalue": "1",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
-      "\u001b[1;32m<ipython-input-237-f9b0874c1d59>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[0;32m      2\u001b[0m \u001b[1;34m'user2'\u001b[0m\u001b[1;33m:\u001b[0m \u001b[1;33m[\u001b[0m\u001b[1;36m54\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m54\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m119\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m119\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m119\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      3\u001b[0m 'user3': [213, 98, 98, 35]}\n\u001b[1;32m----> 4\u001b[1;33m \u001b[0mids\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m1\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m1\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
-      "\u001b[1;31mKeyError\u001b[0m: 1"
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[98, 35, 15, 213, 54, 119]\n"
      ]
     }
    ],
@@ -180,7 +176,59 @@
     "ids = {'user1': [213, 213, 213, 15, 213],\n",
     "'user2': [54, 54, 119, 119, 119],\n",
     "'user3': [213, 98, 98, 35]}\n",
-    "ids[1][1]"
+    "\n",
+    "a = []\n",
+    "for element in ids:\n",
+    "    for index in range(len(ids[element])):\n",
+    "        a.append(ids[element][index])\n",
+    "        \n",
+    "print(list(set(a)))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 325,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Поисковых запросов, содержащих 2 слов(а): 42.86%\n",
+      "Поисковых запросов, содержащих 3 слов(а): 57.14%\n"
+     ]
+    }
+   ],
+   "source": [
+    "queries = [\n",
+    "'смотреть сериалы онлайн',\n",
+    "'новости спорта',\n",
+    "'афиша кино',\n",
+    "'курс доллара',\n",
+    "'сериалы этим летом',\n",
+    "'курс по питону',\n",
+    "'сериалы про спорт',\n",
+    "]\n",
+    "\n",
+    "a = []\n",
+    "for element in range(len(queries)):\n",
+    "    a.append(queries[element].count(' '))\n",
+    "\n",
+    "b = []\n",
+    "for index in range(max(a)+1):\n",
+    "    b.append(0)\n",
+    "\n",
+    "for element in range(len(a)):\n",
+    "    b[a[element]] += 1\n",
+    "\n",
+    "c = sum(b)\n",
+    "for element in range(len(b)):\n",
+    "    if b[element] == 0:\n",
+    "        continue\n",
+    "    else:\n",
+    "        print(f'Поисковых запросов, содержащих {element + 1} слов(а): {b[element] / c:.2%}')\n",
+    "        \n",
+    "        "
    ]
   }
  ],
